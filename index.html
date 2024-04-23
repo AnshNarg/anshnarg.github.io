@@ -448,7 +448,7 @@ flex: 2 0px;
 <h2 class="animation" style="--D:0">Login</h2>
 <form action="#">
 <div class="input-box animation" style="--D:1">
-<input type="text" required>
+<input type="text" id="username" required>
 <label for="">Username</label>
 <i class='bx bxs-user'></i>
 </div>
@@ -458,7 +458,7 @@ flex: 2 0px;
 <i class='bx bxs-lock-alt'></i>
 </div>
 <div class="input-box animation" style="--D:3">
-<button class="btn" type="submit">Login</button>
+<button class="btn js-submit" onclick="redirect()" type="submit">Login</button>
 </div>
 <div class="regi-link animation" style="--D:4">
 <p>Don't have an account ? <a href="#" class="SignUplink">Sign 
@@ -467,8 +467,7 @@ Up</a></p>
 </form>
 </div>
 <div class="info-content Login">
-<h2 class="animation" style="--D:0">WELCOME BACK!</h2>
-<p class="animation" style="--D:1">Login Now</p>
+<h2 class="animation" style="--D:0">Login Now to Shop!</h2>
 </div>
 <div class="form-box Register">
 <h2 class="animation" style="--li:17;--S:0">Register</h2>
@@ -565,6 +564,12 @@ Us</a>
 <p><br><br>&copy; 2024 Urban nest. All rights reserved.</p>
 </div>
 </footer>
-<script src="script.js"></script>
+<script>
+  function redirect()
+  {
+    //if(document.getElementById('username').value != '')
+      window.location.href='main.html';
+  }
+</script>
 </body>
 </html>
