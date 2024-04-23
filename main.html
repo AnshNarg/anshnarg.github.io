@@ -111,9 +111,12 @@ height:150px;
       </select></a></div>
      <div><a href="#" title="Location"><i class="fa-solid fa-location-dot"></i></a></div>
       <div><a href="#" title="List"><i class="fa-solid fa-list"></i></a></div>
-      <div><a href="#" title="Cart"><i class="fa-solid fa-cart-shopping"></i></a></div>
+      <div><a href="#" title="Cart" onclick="redirect()"><i class="fa-solid fa-cart-shopping"></i></a></div>
       <div><a href="login.html" title="Login"><i class="fa-solid fa-right-to-bracket"></i></a></div>
     </div>
+
+
+
   </div>
   <div class="Search">
     <div>
@@ -215,6 +218,10 @@ height:150px;
   </div>
   </section>
    <script>
+    function redirect()
+    {
+      window.location.href='cart.html';
+    }
 </script>
   </body>
 </html>
