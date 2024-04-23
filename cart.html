@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cart | Exquisite Dining</title>
+<link rel="stylesheet" href="cart_style.css">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'
+rel='stylesheet'>
+
+<style>
+html {
+font-size: 100%;
+}
+.footer {
+text-align: center;
+font-family: acumin-pro, system-ui, sans-serif;
+margin: 0;
+display: grid;
+grid-template-rows: auto 1fr auto;
+font-size: 14px;
+background-color: #f4f4f4;
+align-items: start;
+display: flex;
+flex-flow: row wrap;
+padding: 30px 30px 20px 30px;
+color: #fff;
+background-color: #25252b;
+border-top: 1px solid #e5e5e5;
+}
+.footer>* {
+flex: 1 100%;
+}
+.footer__addr {
+margin-right: 1.25em;
+margin-bottom: 2em;
+}
+.footer__logo {
+font-family: 'Pacifico', cursive;
+font-weight: 400;
+font-size: 1.5rem;
+}
+.footer__addr h2 {
+margin-top: 1.3em;
+font-size: 15px;
+font-weight: 400;
+}
+.footer__btn {
+height: 36px;
+max-width: max-content;
+background-color: black;
+border-radius: 100px;
+color: #fff;
+line-height: 0;
+margin: 0.6em 0;
+font-size: 1rem;
+padding: 0.2rem 1.3em;
+}
+.footer ul {
+list-style: none;
+padding-left: 0;
+}
+.footer li {
+line-height: 2em;
+}
+.footer a {
+text-decoration: none;
+}
+.footer__nav {
+display: flex;
+flex-flow: row wrap;
+}
+.footer__nav>* {
+flex: 1 50%;
+margin-right: 1.25em;
+}
+.nav__ul a {
+color: #fff;
+}
+.legal {
+display: flex;
+justify-content: center;
+font-size: 20px;
+flex-wrap: wrap;
+color: #fff;
+}
+.legal__links {
+display: flex;
+align-items: center;
+}
+@media screen and (min-width: 24.375em) {
+.legal .legal__links {
+margin-left: auto;
+}
+}
+@media screen and (min-width: 40.375em) {
+.footer__nav>* {
+flex: 1;
+}
+.footer__addr {
+flex: 1 0px;
+}
+.footer__nav {
+flex: 2 0px;
+}}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "poppins";
+  color: #fff;
+}
+
+.body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+}
+
+.contain {
+  position: relative;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  z-index: 500;
+}
+
+.curved-shape {
+  position: absolute;
+  right: 0;
+  top: -5px;
+  height: 600px;
+  width: 850px;
+  background: linear-gradient(45deg, #25252b, #ffcc00);
+  transform: rotate(10deg) skewY(40deg);
+  transform-origin: bottom right;
+  transition: 1s ease;
+  /* opacity: 0.3; */
+}
+
+.curved-shape2 {
+  position: absolute;
+  left: 250px;
+  top: 100%;
+  height: 700px;
+  width: 850px;
+  background: #25252b;
+  border-top: 3px solid #ffcc00;
+  transform: rotate(0deg) skewY(0deg);
+  transform-origin: bottom left;
+  transition: 0.5s ease;
+  z-index: 30;
+}
+
+.cart-items {
+  padding: 20px;
+  background-color: #25252b;
+  border: 2px solid #ffcc00;
+  box-shadow: 0 0 25px #ffcc00;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.cart-items h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.cart-item {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.item-image {
+  flex: 1;
+}
+
+.item-image img {
+  width: 100%;
+}
+
+.item-details {
+  flex: 3;
+  padding: 0 20px;
+}
+
+.item-details h3 {
+  margin-bottom: 10px;
+}
+
+.item-actions {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.btn-remove {
+  background-color: transparent;
+  border: none;
+  color: #ffcc00;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.cart-summary {
+  padding: 20px;
+  background-color: #25252b;
+  border: 2px solid #ffcc00;
+  box-shadow: 0 0 25px #ffcc00;
+}
+
+.cart-summary h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.total {
+  font-weight: bold;
+}
+
+.btn-checkout {
+  width: 100%;
+  padding: 10px;
+  background-color: #ffcc00;
+  color: #25252b;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-checkout:hover {
+  background-color: #ffc200;
+}
+
+</style>
+</head>
+<body>
+<div class="body">
+    <div class="curved-shape"></div>
+  <div class="contain">
+    
+    <!-- <div class="curved-shape2"></div> -->
+    <div class="cart-items">
+      <h2>Your Cart</h2>
+
+      
+      <div class="cart-item">
+        <div class="item-image">
+            <img src="https://www.jiomart.com/images/product/original/490750662/aashirvaad-superior-mp-atta-10-kg-product-images-o490750662-p590150649-0-202401260852.jpg?im=Resize=(420,420)">
+        </div>
+        <div class="item-details">
+          <h3>Aashirvad Atta</h3>
+          <p>Very good atta</p>
+          <p>200.00</p>
+        </div>
+        <div class="item-actions">
+          <button class="btn-remove"><i class='bx bx-trash'></i></button>
+        </div>
+    </div>
+    <div class="cart-item">
+        <div class="item-image">
+            <img src="https://www.jiomart.com/images/product/original/493839362/apple-iphone-15-pro-max-512-gb-blue-titanium-digital-o493839362-p604576560-0-202309141711.jpeg?im=Resize=(420,420)">
+        </div>
+        <div class="item-details">
+          <h3>Iphone 15</h3>
+          <p>Costly Phone.</p>
+          <p>150000.00</p>
+        </div>
+        <div class="item-actions">
+          <button class="btn-remove"><i class='bx bx-trash'></i></button>
+        </div>
+    </div>
+    <div class="cart-item">
+        <div class="item-image">
+            <img src="https://www.jiomart.com/images/product/original/rvqowlmo7y/bookit-rich-dad-poor-dad-what-the-rich-teach-their-kids-about-money-that-the-poor-and-middle-class-do-not-product-images-orvqowlmo7y-p604777814-0-202309251733.jpg?im=Resize=(420,420)">
+        </div>
+        <div class="item-details">
+          <h3>Rich dad Poor Dad</h3>
+          <p>Good Book.</p>
+          <p>500.00</p>
+        </div>
+        <div class="item-actions">
+          <button class="btn-remove"><i class='bx bx-trash'></i></button>
+        </div>
+    </div>
+
+
+
+
+
+      <!-- Add more cart items as needed -->
+    </div>
+    <div class="cart-summary">
+      <h2>Cart Summary</h2>
+      <div class="summary-item">
+        <p>Subtotal:</p>
+        <p>1507000.00</p>
+      </div>
+      <div class="summary-item">
+        <p>Shipping:</p>
+        <p>00.00</p>
+      </div>
+      <div class="summary-item total">
+        <p>Total:</p>
+        <p>150700.00</p>
+      </div>
+      <button class="btn-checkout">Proceed to Checkout</button>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<footer class="footer">
+    <div class="footer__addr">
+    <h1 class="footer__logo">Urban Nest</h1>
+    <h2>Contact: +91 (555) 123-4567</h2>
+    <address>
+    5534  Urban Nest 22193-10212<br>
+    <br>
+    <a class="footer__btn" href="mailto:adityashriwal@gmail.com">Email 
+    Us</a>
+    </address>
+    </div>
+    <ul class="footer__nav">
+    <li class="nav__item">
+    <h2 class="nav__title">Destinations</h2>
+    <ul class="nav__ul">
+    <li>
+    <a href="#">Dubai</a>
+    </li>
+    <li>
+    <a href="#">US</a>
+    </li>
+    <li>
+    <a href="#">London</a>
+    </li>
+    <li>
+    <a href="#">Switzerland</a>
+    </li>
+    </ul>
+    </li>
+    <li class="nav__item">
+    <h2 class="nav__title">Media</h2>
+    <ul class="nav__ul">
+    <li>
+    <a href="#">Languages</a>
+    </li>
+    <li>
+    <a href="#">Accessibility</a>
+    </li>
+    <li>
+    <a href="#">Careers</a>
+    </li>
+    <li>
+    <a href="#">Alternative Ads</a>
+    </li>
+    </ul>
+    </li>
+    <li class="nav__item">
+    <h2 class="nav__title">Legal</h2>
+    <ul class="nav__ul">
+    <li>
+    <a href="#">Privacy Policy</a>
+    </li>
+    <li>
+    <a href="#">Terms of Use</a>
+    </li>
+    <li>
+    <a href="#">Sitemap</a>
+    </li>
+    </ul>
+    </li>
+    </ul>
+    <div class="legal">
+    <p><br><br>&copy; 2024 Urban nest. All rights reserved.</p>
+    </div>
+    </footer>
+<script src="script.js"></script>
+</body>
+</html>
